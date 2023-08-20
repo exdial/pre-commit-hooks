@@ -1,0 +1,16 @@
+---
+- id: packer_validate
+  name: Packer validate
+  description: Checks packer template is valid.
+  entry: hooks/packer_validate.sh
+  language: script
+  files: (\.pkr\.hcl)$
+  always_run: false
+
+- id: packer_fmt
+  name: Packer fmt
+  description: Rewrites HCL2 config files to canonical format.
+  entry: hooks/packer_fmt.sh
+  language: script
+  files: (\.pkr\.hcl)$
+  always_run: false
