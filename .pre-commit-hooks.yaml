@@ -38,3 +38,4 @@
   language: script
   files: \.hcl$
   always_run: false
+  exclude: (\.pkr\.hcl)$
