@@ -4,10 +4,13 @@
 
 ## Available hooks
 
-| **Hook name**     | **Description**                                 |
-|-------------------|-------------------------------------------------|
-| `packer-validate` | Checks packer template is valid.                |
-| `packer-fmt`      | Rewrites HCL2 config files to canonical format. |
+| **Hook name**        | **Description**                                           |
+|----------------------|-----------------------------------------------------------|
+| `packer-validate`    | Checks packer template is valid.                          |
+| `packer-fmt`         | Rewrites packer template files to canonical format.       |
+| `terraform-validate` | Checks terraform configuration is valid.                  |
+| `terraform-fmt`      | Reformat terraform configuration in the standard style.   |
+| `terragrunt-hclfmt`  | Rewrite terragrunt configuration into a canonical format. |
 
 ## Usage
 
@@ -18,4 +21,7 @@ repos:
     hooks:
       - id: packer-validate
       - id: packer-fmt
+      - id: terraform-validate
+      - id: terraform-fmt
+      - id: terragrunt-hclfmt
 ```

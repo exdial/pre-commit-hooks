@@ -9,8 +9,32 @@
 
 - id: packer-fmt
   name: Packer fmt
-  description: Rewrites HCL2 config files to canonical format.
+  description: Rewrites packer template files to canonical format.
   entry: hooks/packer_fmt.sh
   language: script
   files: (\.pkr\.hcl)$
+  always_run: false
+
+- id: terraform-validate
+  name: Terraform validate
+  description: Checks terraform configuration is valid.
+  entry: hooks/terraform_validate.sh
+  language: script
+  files: \.tf$
+  always_run: false
+
+- id: terraform-fmt
+  name: Terraform fmt
+  description: Reformat terraform configuration in the standard style.
+  entry: hooks/terraform_fmt.sh
+  language: script
+  files: \.tf$
+  always_run: false
+
+- id: terragrunt-hclfmt
+  name: Terragrunt hclfmt
+  description: Rewrite terragrunt configuration into a canonical format.
+  entry: hooks/terragrunt_hclfmt.sh
+  language: script
+  files: \.hcl$
   always_run: false
