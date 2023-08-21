@@ -30,7 +30,7 @@ jobs:
 
   build_image:
     needs: check_changes
-    if: needs.check_changes.outputs.dockerfile == 'true'
+    #if: needs.check_changes.outputs.dockerfile == 'true'
     runs-on: ubuntu-latest
 
     steps:
