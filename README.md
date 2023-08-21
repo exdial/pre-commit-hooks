@@ -25,3 +25,10 @@ repos:
       - id: terraform-fmt
       - id: terragrunt-hclfmt
 ```
+
+### Usage options
+
+This repository provides Docker image `exdial/infra-tools`, which
+contains all the tools required by pre-commit hooks. So you don't need
+to install these tools locally. Pull the Docker image in advance to
+speed up pre-commit checks. `docker pull exdial/infra-tools`
