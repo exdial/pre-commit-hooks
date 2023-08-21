@@ -64,7 +64,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         push: true
-        load: true
         build-args: |
           ALPINE_VERSION=${{ env.alpine_version }}
           PACKER_VERSION=${{ env.packer_version }}
