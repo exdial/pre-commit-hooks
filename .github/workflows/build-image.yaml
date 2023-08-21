@@ -55,14 +55,14 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images: exdial/infra-tools
-      tags: |
-        type=schedule
-        type=ref,event=branch
-        type=ref,event=pr
-        type=semver,pattern={{version}}
-        type=semver,pattern={{major}}.{{minor}}
-        type=semver,pattern={{major}}
-        type=sha
+        tags: |
+          type=schedule
+          type=ref,event=branch
+          type=ref,event=pr
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+          type=semver,pattern={{major}}
+          type=sha
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
