@@ -8,8 +8,10 @@ if command -v packer &>/dev/null; then
   PACKER_EXEC="packer"
 elif command -v docker &>/dev/null; then
   docker pull $IMAGE_URL
-  PACKER_EXEC="docker run --rm -v $(pwd):/data ${IMAGE_URL} \
-                packer init . && packer"
+  PACKER_EXEC="docker run --rm \
+               -v $(pwd):/data \
+               -e PACKER_CONFIG_DIR=/data \
+               ${IMAGE_URL} packer"
 else
   echo "Packer not found"
   exit 1
@@ -22,6 +24,7 @@ else
   for i in "$@"; do
     pushd "$(dirname "$i")" &>/dev/null
     echo "Formatting $i ..."
+    $PACKER_EXEC init "$(basename "$i")"
     $PACKER_EXEC fmt -write=false "$(basename "$i")"
     popd &>/dev/null
   done
