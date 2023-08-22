@@ -8,7 +8,7 @@ if command -v terraform &>/dev/null; then
   TERRAFORM_EXEC="terraform"
 elif command -v docker &>/dev/null; then
   docker pull $IMAGE_URL
-  TERRAFORM_EXEC="docker run --rm ${IMAGE_URL} terraform"
+  TERRAFORM_EXEC="docker run --rm -v $(pwd):/data ${IMAGE_URL} terraform"
 else
   echo "Terraform not found"
   exit 1

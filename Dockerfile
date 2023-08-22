@@ -60,7 +60,7 @@ LABEL org.opencontainers.image.title="infra-tools" \
       org.opencontainers.image.created=$IMAGE_CREATE_DATE \
       org.opencontainers.image.version=$IMAGE_VERSION
 
-WORKDIR /usr/local/bin
+WORKDIR /data
 
 COPY --from=builder /build/* /usr/local/bin/
 
