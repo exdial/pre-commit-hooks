@@ -8,7 +8,7 @@ if command -v packer &>/dev/null; then
   PACKER_EXEC="packer"
 elif command -v docker &>/dev/null; then
   docker pull $IMAGE_URL
-  PACKER_EXEC="docker run --rm ${IMAGE_URL} packer"
+  PACKER_EXEC="docker run --rm -v $(pwd):/data ${IMAGE_URL} packer"
 else
   echo "Packer not found"
   exit 1
