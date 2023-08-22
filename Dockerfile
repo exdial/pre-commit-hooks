@@ -54,8 +54,8 @@ ARG IMAGE_VERSION
 
 # Metadata as defined in OCI image spec annotations
 # https://github.com/opencontainers/image-spec/blob/main/annotations.md
-LABEL org.opencontainers.image.title="infra tools" \
-      org.opencontainers.image.description="infra tools" \
+LABEL org.opencontainers.image.title="infra-tools" \
+      org.opencontainers.image.description="infra-tools" \
       org.opencontainers.image.authors="github.com/exdial" \
       org.opencontainers.image.created=$IMAGE_CREATE_DATE \
       org.opencontainers.image.version=$IMAGE_VERSION
