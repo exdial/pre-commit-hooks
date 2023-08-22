@@ -8,7 +8,7 @@ if command -v terragrunt &>/dev/null; then
   TERRAGRUNT_EXEC="terragrunt"
 elif command -v docker &>/dev/null; then
   docker pull $IMAGE_URL
-  TERRAGRUNT_EXEC="docker run --rm -it ${IMAGE_URL} terragrunt"
+  TERRAGRUNT_EXEC="docker run --rm ${IMAGE_URL} terragrunt"
 else
   echo "Terragrunt not found"
   exit 1
