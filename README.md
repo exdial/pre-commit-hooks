@@ -17,7 +17,7 @@
 ```yaml
 repos:
   - repo: https://github.com/exdial/pre-commit-hooks
-    rev: <VERSION> # Get the latest from: https://github.com/exdial/pre-commit-hooks/releases
+    rev: <VERSION> # Get the latest from: https://github.com/exdial/pre-commit-hooks/tags
     hooks:
       - id: packer-validate
       - id: packer-fmt
@@ -32,3 +32,7 @@ This repository provides Docker image [exdial/infra-tools](https://hub.docker.co
 contains all the tools required by pre-commit hooks. So you don't need
 to install these tools locally. Pull the Docker image in advance to
 speed up pre-commit checks. `docker pull exdial/infra-tools`
+
+### Feedback
+
+[Suggestions and improvements](https://github.com/exdial/pre-commit-hooks/issues)
