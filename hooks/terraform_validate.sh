@@ -8,7 +8,11 @@ if command -v terraform &>/dev/null; then
   TERRAFORM_EXEC="terraform"
 elif command -v docker &>/dev/null; then
   docker pull $IMAGE_URL
-  TERRAFORM_EXEC="docker run --rm -v $(pwd):/data ${IMAGE_URL} terraform"
+  TERRAFORM_EXEC="docker run --rm \
+                  -v $(pwd):/data \
+                  -e TF_DATA_DIR=/data/.terraform \
+                  -e TF_PLUGIN_CACHE_DIR=/data/.terraform \
+                  ${IMAGE_URL} terraform"
 else
   echo "Terraform not found"
   exit 1
@@ -19,9 +23,8 @@ if [ $# -lt 1 ]; then
   exit 0
 else
   for i in "$@"; do
-    pushd "$(dirname "$i")" &>/dev/null
     echo "Validating $i ..."
-    $TERRAFORM_EXEC validate "$(basename "$i")"
-    popd &>/dev/null
+    $TERRAFORM_EXEC -chdir="$(dirname "$i")" init
+    $TERRAFORM_EXEC -chdir="$(dirname "$i")" validate
   done
 fi
